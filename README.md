@@ -32,17 +32,21 @@ Run the React application.
 npm start
 ```
 
-# Debugging methods
+# Debugging in Python
 
 - Use PDB on Python
 - Use Run and Debug Flask app on VSCODE
     - Create launch.json file
     - Specify CWD
     - Set venv interpreter on vscode
+
+# Debugging in Front-end
+
 - Use Sources tab and breakpoints on Browser
-- Use Run and Debug "Launch Chrome" on VSCODE
+- Use `breakpoint` expression
+- Use Run and Debug on VSCODE
     - Change the port to 3000
-    - Ensure the app is running on a different shell
+    - Ensure the app is running on a different terminal
 
 # Requirements
 

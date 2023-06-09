@@ -9,14 +9,26 @@ interface RepoResponse {
 
 function UserRepos() {
   const [repos, setRepos] = useState<RepoResponse[]>([]);
+  const [msg, setMsg] = useState<string>("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/repos")
-      .then(response => response.json())
-      .then(setRepos)
+    (async () => {
+      try {
+        setMsg("Loading...")
+        const req = await fetch("http://localhost:8000/repos")
+        const response = await req.json()
+        setRepos(response)
+        setMsg("")
+      } catch(error) {
+        setMsg(error.message)
+      }
+    })()
   }, []);
 
   function displayRepos() {
+    if (msg) {
+      return <div>{msg}</div>
+    }
     return repos.map(repo => (
       <div className="single-repo" key={repo.name}>
         <h2 className="repo-title">{repo.name} {repo.fork ? "⚔️" : ""}</h2>
