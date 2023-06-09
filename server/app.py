@@ -13,7 +13,7 @@ def index():
 
 @app.route("/repos")
 def repos():
-    user = "globant"
+    user = "po5i"
     res = requests.get(f"https://api.github.com/users/{user}/repos")
     user_repos = res.json()
     return jsonify(
@@ -30,4 +30,4 @@ def repos():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
