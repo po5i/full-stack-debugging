@@ -14,7 +14,7 @@ def index():
 @app.route("/repos")
 def repos():
     user = "po5i"
-    res = requests.get(f"https://api.github.com/users/{user}/repox?sort=update")
+    res = requests.get(f"https://api.github.com/users/{user}/repos?sort=update")
     user_repos = res.json()
     return jsonify(
         [
